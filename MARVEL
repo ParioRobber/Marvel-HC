@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0f">
+<title>Marvels : Hard Comeback</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;
+  background:#05050a;color:#fff;
+  display:flex;justify-content:center;align-items:center;
+  position:relative;font-feature-settings:"tnum" on,"lnum" on;
+  -webkit-font-smoothing:antialiased;letter-spacing:-0.01em;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse at 50% -20%, rgba(230,36,41,.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 110%, rgba(255,184,0,.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(230,36,41,.2) 0%, transparent 50%),
+    linear-gradient(180deg,#0d0205 0%,#05050a 50%,#000000 100%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(circle, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size:32px 32px;
+  mask-image:radial-gradient(ellipse at 50% 35%, #000 20%, transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 35%, #000 20%, transparent 75%);
+}
+.streak{
+  position:fixed;top:0;left:-50%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(230,36,41,.08),transparent);
+  transform:skewX(-20deg);animation:streakMove 8s linear infinite;
+  pointer-events:none;z-index:1;
+}
+@keyframes streakMove{0%{left:-60%}100%{left:120%}}
+
+#app{
+  position:relative;z-index:2;
+  width:100%;max-width:440px;height:100%;max-height:900px;
+  display:flex;flex-direction:column;overflow:hidden;
+}
+header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px 8px;gap:10px;z-index:10;
+}
+.logo{
+  display:flex;align-items:center;gap:9px;
+  font-family:'Rajdhani',sans-serif;font-weight:700;
+  letter-spacing:2px;font-size:13px;color:#fff;
+}
+.logoBox{
+  width:30px;height:30px;
+  background:linear-gradient(135deg,#E62429 0%,#8B0F14 100%);
+  border-radius:6px;display:flex;align-items:center;justify-content:center;
+  font-family:'Inter',sans-serif;font-weight:900;font-size:16px;color:#fff;
+  box-shadow:0 0 20px rgba(230,36,41,.6), inset 0 1px 0 rgba(255,255,255,.3);
+  position:relative;
+}
+.logoBox::after{
+  content:'';position:absolute;inset:0;border-radius:6px;
+  background:linear-gradient(135deg,rgba(255,255,255,.25),transparent 50%);
+  pointer-events:none;
+}
+.logo .name{color:#fff;font-size:13px;letter-spacing:2.5px}
+.logo .name b{color:#E62429;font-weight:900}
+.rankBadge{
+  display:flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,rgba(255,184,0,.12),rgba(255,184,0,.04));
+  border:1px solid rgba(255,184,0,.35);
+  padding:6px 12px;border-radius:99px;
+  font-size:10px;font-weight:800;color:#FFB800;
+  letter-spacing:1.5px;font-family:'Rajdhani',sans-serif;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1);
+}
+.rankBadge .dot{
+  width:6px;height:6px;border-radius:50%;background:#FFB800;
+  box-shadow:0 0 8px #FFB800;animation:pulseDot 1.6s ease-in-out infinite;
+}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+
+/* EVENT BANNER */
+.eventBanner{
+  margin:0 14px 6px;
+  background:linear-gradient(90deg, rgba(230,36,41,.2), rgba(255,184,0,.15));
+  border:1px solid rgba(230,36,41,.4);
+  border-radius:12px;
+  padding:8px 12px;
+  display:flex;align-items:center;gap:9px;
+  cursor:pointer;transition:.2s;
+  position:relative;overflow:hidden;
+}
+.eventBanner::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+  animation:eventShine 3s linear infinite;
+}
+@keyframes eventShine{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.eventBanner:active{transform:scale(.98)}
+.eventBanner .evIcon{
+  font-size:18px;flex-shrink:0;
+  filter:drop-shadow(0 0 8px rgba(255,184,0,.8));
+  animation:eventPulse 1.5s ease-in-out infinite;
+}
+@keyframes eventPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.eventBanner .evBody{flex:1;min-width:0}
+.eventBanner .evTitle{
+  font-size:11.5px;font-weight:800;color:#fff;
+  font-family:'Rajdhani',sans-serif;letter-spacing:1px;
+  text-transform:uppercase;margin-bottom:2px;
+}
+.eventBanner .evDesc{
+  font-size:9.5px;color:#c8c8d0;font-weight:600;
+}
+.eventBanner .evTimer{
+  font-size:10px;font-weight:800;color:#FFB800;
+  font-family:'Rajdhani',sans-serif;letter-spacing:1px;
+  font-variant-numeric:tabular-nums;
+  padding:4px 8px;border-radius:99px;
+  background:rgba(0,0,0,.4);
+  border:1px solid rgba(255,184,0,.3);
+  white-space:nowrap;
+}
+
+.scoreBox{text-align:center;padding:6px 20px 0;z-index:5}
+.scoreLabel{
+  font-size:10px;color:#7a7a85;letter-spacing:4px;font-weight:700;
+  margin-bottom:6px;font-family:'Rajdhani',sans-serif;
+}
+.balance{
+  display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:2px 0;
+}
+.balance .coinMini{
+  width:34px;height:34px;
+  filter:drop-shadow(0 0 14px rgba(255,184,0,.7));
+  animation:coinFloat 3s ease-in-out infinite;
+}
+@keyframes coinFloat{
+  0%,100%{transform:translateY(0) rotateY(0deg)}
+  50%{transform:translateY(-3px) rotateY(20deg)}
+}
+.balance .amount{
+  font-size:52px;font-weight:900;line-height:1;color:#fff;
+  letter-spacing:-2px;font-variant-numeric:tabular-nums;
+  text-shadow:0 0 30px rgba(255,184,0,.4),0 2px 20px rgba(230,36,41,.3);
+  transition:transform .1s ease,color .15s ease;
+}
+.balance .amount.pop{transform:scale(1.06);color:#FFB800}
+.perClick{
+  font-size:11px;color:#8a8a95;margin-top:6px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.perClick b{color:#E62429;font-weight:800;letter-spacing:.5px}
+.perClick .divider{color:#333;margin:0 4px}
+
+.coinArea{
+  flex:1;position:relative;display:flex;align-items:center;justify-content:center;
+  z-index:5;overflow:hidden;min-height:0;padding:10px 0;
+}
+.hexGrid{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  pointer-events:none;opacity:.35;
+}
+.hexRing{position:absolute;border-radius:50%;border:1px solid rgba(230,36,41,.35)}
+.hexRing.r1{width:290px;height:290px;animation:ringRotate 40s linear infinite}
+.hexRing.r2{width:340px;height:340px;border-color:rgba(255,184,0,.2);border-style:dashed;animation:ringRotate 60s linear infinite reverse}
+.hexRing.r3{width:390px;height:390px;border-color:rgba(230,36,41,.15);border-style:dotted;animation:ringRotate 90s linear infinite}
+@keyframes ringRotate{to{transform:rotate(360deg)}}
+.bracket{position:absolute;width:26px;height:26px;border:2px solid #E62429;pointer-events:none;opacity:.8}
+.bracket.tl{top:22px;left:22px;border-right:none;border-bottom:none}
+.bracket.tr{top:22px;right:22px;border-left:none;border-bottom:none}
+.bracket.bl{bottom:22px;left:22px;border-right:none;border-top:none}
+.bracket.br{bottom:22px;right:22px;border-left:none;border-top:none}
+.coinGlow{
+  position:absolute;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,
+    rgba(255,184,0,.4) 0%,rgba(255,184,0,.15) 25%,
+    rgba(230,36,41,.08) 50%,transparent 70%);
+  animation:glowPulse 3s ease-in-out infinite;
+  pointer-events:none;filter:blur(10px);
+}
+@keyframes glowPulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.15);opacity:1}}
+#coin{
+  width:230px;height:230px;position:relative;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .08s cubic-bezier(.3,1.6,.6,1);
+  animation:coinIdle 3.5s ease-in-out infinite;
+  filter:drop-shadow(0 20px 40px rgba(0,0,0,.7))
+         drop-shadow(0 0 50px rgba(255,184,0,.5))
+         drop-shadow(0 0 100px rgba(230,36,41,.3));
+  touch-action:manipulation;
+}
+@keyframes coinIdle{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+#coin:active,#coin.hit{transform:scale(.93) translateY(-4px)}
+#coin svg{width:100%;height:100%;display:block;pointer-events:none}
+
+.energyBox{padding:10px 22px 12px;z-index:5}
+.energyRow{display:flex;align-items:center;gap:10px}
+.energyIcon{
+  width:20px;height:20px;display:flex;align-items:center;justify-content:center;
+  color:#FFB800;filter:drop-shadow(0 0 8px rgba(255,184,0,.9));
+}
+.energyText{
+  font-size:10.5px;color:#8a8a95;font-weight:700;
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+  min-width:74px;text-align:left;letter-spacing:.5px;
+  font-family:'Rajdhani',sans-serif;
+}
+.energyText b{color:#fff;font-weight:800}
+.energyBar{
+  flex:1;height:12px;background:rgba(255,255,255,.04);
+  border-radius:99px;overflow:hidden;
+  border:1px solid rgba(255,184,0,.2);
+  position:relative;box-shadow:inset 0 2px 6px rgba(0,0,0,.6);
+}
+.energyFill{
+  height:100%;width:100%;
+  background:linear-gradient(90deg,#8B0F14,#E62429,#FF4B52,#FFB800);
+  background-size:200% 100%;border-radius:99px;
+  box-shadow:0 0 15px rgba(230,36,41,.7), inset 0 1px 0 rgba(255,255,255,.3);
+  transition:width .25s linear;animation:energyFlow 3s linear infinite;
+}
+@keyframes energyFlow{0%{background-position:0% 0}100%{background-position:200% 0}}
+.energyFill.low{background:linear-gradient(90deg,#5a0000,#8B0F14);box-shadow:0 0 15px rgba(139,15,20,.7)}
+
+.bottomNav{
+  display:flex;justify-content:space-around;align-items:center;
+  padding:10px 4px calc(12px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(10,5,8,.5),rgba(5,2,4,.98));
+  border-top:1px solid rgba(230,36,41,.2);
+  backdrop-filter:blur(20px);z-index:20;position:relative;
+  box-shadow:0 -12px 40px rgba(0,0,0,.6);
+}
+.navItem{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  flex:1;padding:6px 2px;border-radius:14px;
+  cursor:pointer;transition:.2s;color:#6a6a75;
+  font-size:9.5px;font-weight:700;letter-spacing:1px;
+  font-family:'Rajdhani',sans-serif;text-transform:uppercase;
+}
+.navItem .navIcon{
+  font-size:19px;line-height:1;transition:.2s;
+  filter:grayscale(.7) opacity(.6);
+  position:relative;
+}
+.navItem.active{
+  color:#E62429;
+  background:radial-gradient(circle at center, rgba(230,36,41,.15), transparent 70%);
+}
+.navItem.active .navIcon{
+  filter:drop-shadow(0 0 10px rgba(230,36,41,.9));
+  transform:scale(1.1);
+}
+.navBadge{
+  position:absolute;top:-3px;right:-6px;
+  min-width:14px;height:14px;padding:0 4px;
+  background:#E62429;color:#fff;
+  border-radius:99px;font-size:8px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  border:1.5px solid #0a0508;
+  box-shadow:0 0 8px rgba(230,36,41,.8);
+  animation:badgePulse 1.4s ease-in-out infinite;
+  font-family:'Inter',sans-serif;
+}
+@keyframes badgePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.navBadge.hidden{display:none}
+
+.sheetOverlay{
+  position:absolute;inset:0;background:rgba(0,0,0,.6);
+  z-index:90;opacity:0;pointer-events:none;transition:.3s;
+  backdrop-filter:blur(4px);
+}
+.sheetOverlay.show{opacity:1;pointer-events:auto}
+.sheet{
+  position:absolute;bottom:0;left:0;right:0;max-height:82%;
+  background:linear-gradient(180deg,#15151c 0%,#0a0a10 100%);
+  border-radius:26px 26px 0 0;
+  border-top:1px solid rgba(230,36,41,.4);
+  box-shadow:0 -30px 80px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.05);
+  z-index:100;transform:translateY(100%);
+  transition:transform .4s cubic-bezier(.2,.9,.3,1);
+  display:flex;flex-direction:column;overflow:hidden;
+}
+.sheet.show{transform:translateY(0)}
+.sheet::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,#E62429,transparent);
+}
+.sheetHeader{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px 12px;border-bottom:1px solid rgba(255,255,255,.05);
+  flex-shrink:0;position:relative;
+}
+.sheetHeader .dragHandle{
+  position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  width:44px;height:4px;border-radius:99px;background:rgba(255,255,255,.15);
+}
+.sheetTitle{
+  font-size:14px;font-weight:800;color:#fff;
+  display:flex;align-items:center;gap:10px;
+  font-family:'Rajdhani',sans-serif;letter-spacing:2px;text-transform:uppercase;
+}
+.sheetTitle .accent{color:#E62429}
+.sheetClose{
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:14px;color:#fff;transition:.2s;
+  border:1px solid rgba(255,255,255,.08);
+}
+.sheetClose:active{background:rgba(230,36,41,.2);border-color:rgba(230,36,41,.5)}
+.sheetBody{padding:16px 18px 22px;overflow-y:auto;flex:1}
+.sheetBody::-webkit-scrollbar{width:0}
+
+/* tabs inside sheet */
+.subTabs{
+  display:flex;gap:6px;margin-bottom:14px;
+  background:rgba(0,0,0,.3);padding:4px;border-radius:12px;
+  border:1px solid rgba(255,255,255,.05);
+}
+.subTab{
+  flex:1;padding:8px;text-align:center;border-radius:9px;
+  font-size:10.5px;font-weight:800;color:#7a7a85;
+  cursor:pointer;transition:.2s;
+  font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-transform:uppercase;
+  position:relative;
+}
+.subTab.active{
+  background:linear-gradient(135deg,rgba(230,36,41,.25),rgba(230,36,41,.1));
+  color:#fff;
+  box-shadow:0 0 15px rgba(230,36,41,.3), inset 0 1px 0 rgba(255,255,255,.1);
+}
+.subTab .stBadge{
+  position:absolute;top:-4px;right:2px;
+  min-width:14px;height:14px;padding:0 4px;
+  background:#FFB800;color:#0a0500;
+  border-radius:99px;font-size:8px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  border:1.5px solid #0a0508;
+  font-family:'Inter',sans-serif;
+}
+
+.heroGrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.heroCard{
+  background:linear-gradient(160deg,#1a1a24 0%,#0f0f17 100%);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:16px;padding:13px 11px;
+  cursor:pointer;transition:.15s;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:9px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+.heroCard::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent,#E62429),transparent);
+  opacity:.6;
+}
+.heroCard::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:60%;
+  background:radial-gradient(ellipse at 50% 0%, var(--accent-soft,rgba(230,36,41,.12)), transparent 70%);
+  pointer-events:none;
+}
+.heroCard:active{transform:scale(.97);border-color:var(--accent,#E62429)}
+.heroCard.disabled{opacity:.5}
+.heroCard.maxed{
+  border-color:rgba(255,184,0,.5);
+  box-shadow:0 0 25px rgba(255,184,0,.15), inset 0 1px 0 rgba(255,255,255,.04);
+}
+.heroCard .hIcon{
+  width:48px;height:48px;border-radius:12px;
+  background:linear-gradient(135deg,#252530,#13131b);
+  border:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;position:relative;z-index:1;
+  box-shadow:inset 0 2px 8px rgba(0,0,0,.6);
+}
+.heroCard .hName{
+  font-size:12.5px;font-weight:800;color:#fff;line-height:1.25;
+  position:relative;z-index:1;font-family:'Rajdhani',sans-serif;
+  letter-spacing:.5px;text-transform:uppercase;
+}
+.heroCard .hDesc{
+  font-size:10px;color:#8a8a95;line-height:1.5;
+  position:relative;z-index:1;min-height:30px;font-weight:500;
+}
+.heroCard .hFooter{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:auto;position:relative;z-index:1;gap:4px;
+}
+.heroCard .hLvl{
+  font-size:9px;font-weight:800;color:#8a8a95;
+  background:rgba(255,255,255,.05);padding:3px 8px;border-radius:99px;
+  border:1px solid rgba(255,255,255,.08);
+  font-family:'Rajdhani',sans-serif;letter-spacing:1px;
+}
+.heroCard .hPrice{
+  display:inline-flex;align-items:center;gap:3px;
+  background:rgba(255,184,0,.1);border:1px solid rgba(255,184,0,.3);
+  padding:4px 9px;border-radius:99px;
+  font-size:11px;font-weight:800;color:#FFB800;
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.heroCard.maxed .hPrice{
+  background:rgba(76,220,110,.12);border-color:rgba(76,220,110,.4);color:#4CDC6E;
+}
+
+.missionCard{
+  background:linear-gradient(160deg,#1a1a24 0%,#0f0f17 100%);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;padding:13px;margin-bottom:10px;
+  display:flex;align-items:center;gap:12px;
+  position:relative;overflow:hidden;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+.missionCard::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,#E62429,#FFB800);
+}
+.missionCard.done::before{background:linear-gradient(180deg,#4CDC6E,#2A8A42)}
+.missionCard.done{border-color:rgba(76,220,110,.4)}
+.missionCard.event::before{background:linear-gradient(180deg,#FFB800,#FF4B52,#E62429)}
+.missionCard.event{border-color:rgba(255,184,0,.4)}
+.missionCard .mIcon{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,#252530,#13131b);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;flex-shrink:0;
+  border:1px solid rgba(255,255,255,.08);
+}
+.missionCard .mBody{flex:1;min-width:0}
+.missionCard .mTitle{
+  font-size:12.5px;font-weight:800;color:#fff;margin-bottom:4px;
+  font-family:'Rajdhani',sans-serif;letter-spacing:.5px;text-transform:uppercase;
+}
+.missionCard .mDesc{
+  font-size:10.5px;color:#8a8a95;line-height:1.5;font-weight:500;
+}
+.missionCard .mBar{
+  height:5px;background:rgba(0,0,0,.5);
+  border-radius:99px;margin-top:8px;overflow:hidden;
+}
+.missionCard .mFill{
+  height:100%;background:linear-gradient(90deg,#8B0F14,#E62429,#FFB800);
+  border-radius:99px;transition:width .4s;
+  box-shadow:0 0 10px rgba(230,36,41,.6);
+}
+.missionCard.done .mFill{
+  background:linear-gradient(90deg,#2A8A42,#4CDC6E);
+  box-shadow:0 0 10px rgba(76,220,110,.6);
+}
+.missionCard .mClaim{
+  padding:8px 13px;border-radius:10px;
+  background:linear-gradient(135deg,#E62429,#8B0F14);
+  color:#fff;font-weight:800;font-size:10.5px;
+  border:none;cursor:pointer;white-space:nowrap;
+  font-family:'Rajdhani',sans-serif;letter-spacing:1px;
+  text-transform:uppercase;
+  box-shadow:0 3px 0 rgba(90,10,15,.7),0 4px 12px rgba(230,36,41,.4);
+  transition:.1s;
+}
+.missionCard .mClaim:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(90,10,15,.7)}
+.missionCard .mClaim.gold{
+  background:linear-gradient(135deg,#FFB800,#B88000);
+  color:#0a0500;
+  box-shadow:0 3px 0 rgba(120,80,0,.7),0 4px 12px rgba(255,184,0,.4);
+}
+
+.statsGrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.statCard{
+  background:linear-gradient(160deg,#1a1a24 0%,#0f0f17 100%);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;padding:15px 11px;text-align:center;
+  position:relative;overflow:hidden;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+.statCard::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(230,36,41,.6),transparent);
+}
+.statCard .stIcon{font-size:22px;margin-bottom:7px;opacity:.9}
+.statCard .stValue{
+  font-size:19px;font-weight:900;color:#fff;
+  font-variant-numeric:tabular-nums;line-height:1;
+  text-shadow:0 0 15px rgba(230,36,41,.4);
+}
+.statCard .stLabel{
+  font-size:9.5px;color:#7a7a85;margin-top:6px;
+  font-weight:700;letter-spacing:1.2px;
+  font-family:'Rajdhani',sans-serif;text-transform:uppercase;
+}
+
+/* STREAK CARD */
+.streakCard{
+  background:linear-gradient(160deg,#2a1510,#1a0a08);
+  border:1px solid rgba(255,184,0,.35);
+  border-radius:16px;padding:16px;margin-bottom:14px;
+  position:relative;overflow:hidden;text-align:center;
+}
+.streakCard::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%, rgba(255,184,0,.2), transparent 60%);
+  pointer-events:none;
+}
+.streakCard .scTitle{
+  font-size:11px;font-weight:800;color:#FFB800;
+  font-family:'Rajdhani',sans-serif;letter-spacing:2px;
+  text-transform:uppercase;margin-bottom:4px;
+}
+.streakCard .scDays{
+  font-size:44px;font-weight:900;color:#fff;
+  font-family:'Rajdhani',sans-serif;
+  line-height:1;letter-spacing:-2px;
+  text-shadow:0 0 30px rgba(255,184,0,.7);
+}
+.streakCard .scLabel{
+  font-size:10px;color:#c8b8a8;letter-spacing:1px;
+  margin-top:4px;text-transform:uppercase;font-weight:700;
+}
+.streakCard .scMult{
+  display:inline-block;margin-top:8px;
+  padding:5px 12px;border-radius:99px;
+  background:rgba(255,184,0,.15);
+  border:1px solid rgba(255,184,0,.4);
+  font-size:11px;font-weight:900;color:#FFB800;
+  font-family:'Rajdhani',sans-serif;letter-spacing:1.5px;
+}
+.streakDots{
+  display:flex;justify-content:center;gap:6px;margin-top:12px;
+  flex-wrap:wrap;
+}
+.streakDot{
+  width:26px;height:26px;border-radius:50%;
+  background:rgba(255,255,255,.05);
+  border:2px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;color:#5a5a65;
+  font-family:'Rajdhani',sans-serif;
+}
+.streakDot.done{
+  background:linear-gradient(135deg,#FFB800,#E62429);
+  border-color:#FFB800;color:#fff;
+  box-shadow:0 0 15px rgba(255,184,0,.6);
+}
+.streakDot.today{
+  border-color:#E62429;
+  animation:todayPulse 1.5s ease-in-out infinite;
+}
+@keyframes todayPulse{0%,100%{box-shadow:0 0 0 rgba(230,36,41,.7)}50%{box-shadow:0 0 20px rgba(230,36,41,.9)}}
+.streakBtn{
+  display:block;width:100%;margin-top:12px;
+  padding:12px;border:none;border-radius:12px;
+  background:linear-gradient(135deg,#FFB800,#E62429);
+  color:#fff;font-weight:900;font-size:12px;
+  font-family:'Rajdhani',sans-serif;letter-spacing:2px;
+  text-transform:uppercase;cursor:pointer;
+  box-shadow:0 4px 0 rgba(120,20,20,.7),0 6px 20px rgba(230,36,41,.5);
+  transition:.15s;
+}
+.streakBtn:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(120,20,20,.7)}
+.streakBtn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+
+/* EVENT CARD */
+.eventCard{
+  background:linear-gradient(160deg,#3a0a08,#1a0504);
+  border:1px solid rgba(255,184,0,.4);
+  border-radius:16px;padding:16px;margin-bottom:12px;
+  position:relative;overflow:hidden;
+}
+.eventCard::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,184,0,.15), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(230,36,41,.15), transparent 40%);
+  pointer-events:none;
+}
+.eventCard .ecTop{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:10px;margin-bottom:10px;position:relative;
+}
+.eventCard .ecIcon{
+  font-size:36px;line-height:1;
+  filter:drop-shadow(0 0 15px rgba(255,184,0,.7));
+  animation:eventIconSpin 4s linear infinite;
+}
+@keyframes eventIconSpin{
+  0%,100%{transform:rotate(-5deg) scale(1)}
+  50%{transform:rotate(5deg) scale(1.1)}
+}
+.eventCard .ecHead{flex:1;min-width:0}
+.eventCard .ecName{
+  font-size:15px;font-weight:900;color:#FFB800;
+  font-family:'Rajdhani',sans-serif;letter-spacing:1.5px;
+  text-transform:uppercase;margin-bottom:3px;
+  text-shadow:0 0 20px rgba(255,184,0,.5);
+}
+.eventCard .ecTime{
+  font-size:10px;color:#c8b8a8;font-weight:700;
+  letter-spacing:1px;font-variant-numeric:tabular-nums;
+}
+.eventCard .ecDesc{
+  font-size:11px;color:#c8c8d0;line-height:1.6;
+  margin-bottom:12px;position:relative;
+}
+
+/* DAILY REWARD POPUP */
+.rewardPopup{
+  position:fixed;top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(.7);
+  background:linear-gradient(160deg,#2a1510,#1a0a08);
+  border:2px solid #FFB800;
+  border-radius:20px;padding:24px 28px;
+  text-align:center;z-index:500;
+  opacity:0;pointer-events:none;transition:.4s cubic-bezier(.3,1.6,.6,1);
+  box-shadow:0 0 80px rgba(255,184,0,.6), 0 30px 60px rgba(0,0,0,.8);
+  min-width:240px;
+}
+.rewardPopup.show{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+.rewardPopup .rpIcon{font-size:52px;margin-bottom:8px;filter:drop-shadow(0 0 20px rgba(255,184,0,.8))}
+.rewardPopup .rpTitle{
+  font-size:13px;font-weight:900;color:#FFB800;
+  font-family:'Rajdhani',sans-serif;letter-spacing:2px;
+  text-transform:uppercase;margin-bottom:6px;
+}
+.rewardPopup .rpAmount{
+  font-size:36px;font-weight:900;color:#fff;
+  font-family:'Rajdhani',sans-serif;
+  text-shadow:0 0 25px rgba(255,184,0,.7);
+  letter-spacing:-1px;
+}
+.rewardPopup .rpSub{
+  font-size:10.5px;color:#8a8a95;margin-top:8px;
+  letter-spacing:1px;text-transform:uppercase;
+}
+
+/* FX */
+.floaty{
+  position:absolute;font-weight:900;font-size:24px;
+  color:#FFB800;pointer-events:none;
+  text-shadow:0 0 18px rgba(255,184,0,.9),0 0 40px rgba(255,184,0,.5),0 2px 0 rgba(0,0,0,.4);
+  animation:floatUp 1s cubic-bezier(.2,.8,.2,1) forwards;
+  z-index:60;font-variant-numeric:tabular-nums;letter-spacing:-1px;
+}
+@keyframes floatUp{
+  0%{transform:translate(-50%,-50%) scale(.5);opacity:1}
+  18%{transform:translate(-50%,-60%) scale(1.2)}
+  100%{transform:translate(-50%,-160px) scale(1);opacity:0}
+}
+.pt{
+  position:absolute;border-radius:50%;pointer-events:none;z-index:55;
+  animation:ptBurst .85s cubic-bezier(.2,.8,.3,1) forwards;
+}
+@keyframes ptBurst{
+  0%{transform:translate(-50%,-50%) scale(1.4);opacity:1}
+  100%{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(0);opacity:0}
+}
+.ripple{
+  position:absolute;border-radius:50%;pointer-events:none;z-index:50;
+  border:2px solid rgba(255,184,0,.7);transform:translate(-50%,-50%);
+  animation:rippleOut .65s cubic-bezier(.2,.8,.3,1) forwards;
+}
+@keyframes rippleOut{
+  from{width:0;height:0;opacity:1;border-width:4px}
+  to{width:240px;height:240px;opacity:0;border-width:1px}
+}
+.sparkLine{
+  position:absolute;height:2px;pointer-events:none;z-index:58;
+  background:linear-gradient(90deg,transparent,#fff,transparent);
+  transform-origin:center;
+  animation:sparkFade .5s ease-out forwards;
+}
+@keyframes sparkFade{
+  0%{opacity:1;transform:translate(-50%,-50%) scaleX(0)}
+  50%{opacity:1;transform:translate(-50%,-50%) scaleX(1)}
+  100%{opacity:0;transform:translate(-50%,-50%) scaleX(1.5)}
+}
+.shakeScreen{animation:screenShake .3s cubic-bezier(.36,.07,.19,.97)}
+@keyframes screenShake{
+  10%,90%{transform:translate(-1px,0)}
+  20%,80%{transform:translate(2px,0)}
+  30%,50%,70%{transform:translate(-3px,0)}
+  40%,60%{transform:translate(3px,0)}
+}
+.critFlash{
+  position:fixed;inset:0;pointer-events:none;z-index:150;
+  background:radial-gradient(circle at center, rgba(255,184,0,.5), transparent 60%);
+  animation:critFlashAnim .4s ease-out forwards;
+}
+@keyframes critFlashAnim{from{opacity:1}to{opacity:0}}
+.comboBadge{
+  position:absolute;top:14px;left:50%;
+  transform:translateX(-50%) translateY(-20px);
+  font-family:'Rajdhani',sans-serif;font-weight:800;font-size:24px;
+  color:#FFB800;
+  text-shadow:0 0 25px rgba(255,184,0,.9),0 0 50px rgba(230,36,41,.5);
+  opacity:0;transition:.2s;pointer-events:none;z-index:80;
+  letter-spacing:3px;text-transform:uppercase;
+}
+.comboBadge.show{opacity:1;transform:translateX(-50%) translateY(0);animation:comboPop .3s ease}
+.comboBadge.x2{color:#fff}
+.comboBadge.x3{color:#E62429}
+.comboBadge.x4{color:#FFB800;text-shadow:0 0 40px #FFB800,0 0 80px #E62429}
+@keyframes comboPop{
+  0%{transform:translateX(-50%) translateY(0) scale(1.6)}
+  100%{transform:translateX(-50%) translateY(0) scale(1)}
+}
+
+#toast{
+  position:absolute;top:80px;left:50%;
+  transform:translateX(-50%) translateY(-20px);
+  background:linear-gradient(135deg,#E62429,#8B0F14);
+  color:#fff;padding:11px 22px;border-radius:12px;
+  font-size:12px;font-weight:800;opacity:0;
+  transition:.3s;z-index:300;pointer-events:none;
+  box-shadow:0 12px 35px rgba(230,36,41,.5),inset 0 1px 0 rgba(255,255,255,.15);
+  letter-spacing:.5px;white-space:nowrap;
+  border:1px solid rgba(255,255,255,.1);
+  text-transform:uppercase;font-family:'Rajdhani',sans-serif;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#toast.ok{
+  background:linear-gradient(135deg,#FFB800,#B88000);
+  color:#0a0500;
+  box-shadow:0 0 30px rgba(255,184,0,.7), inset 0 1px 0 rgba(255,255,255,.25);
+}
+#toast.event{
+  background:linear-gradient(135deg,#FF4B52,#E62429,#8B0F14);
+  box-shadow:0 0 35px rgba(255,184,0,.7), 0 12px 35px rgba(230,36,41,.6);
+  border-color:rgba(255,184,0,.5);
+}
+</style>
+</head>
+<body>
+
+<div class="streak"></div>
+
+<div id="app">
+
+  <header>
+    <div class="logo">
+      <div class="logoBox">M</div>
+      <div class="name">MARVELS<b>·</b>HC</div>
+    </div>
+    <div class="rankBadge">
+      <span class="dot"></span>
+      <span id="rankTxt">RECRUIT</span>
+    </div>
+  </header>
+
+  <!-- EVENT BANNER -->
+  <div class="eventBanner" id="eventBanner" style="display:none">
+    <div class="evIcon" id="evIcon">⚡</div>
+    <div class="evBody">
+      <div class="evTitle" id="evTitle">EVENT</div>
+      <div class="evDesc" id="evDesc">limited time</div>
+    </div>
+    <div class="evTimer" id="evTimer">--:--:--</div>
+  </div>
+
+  <div class="scoreBox">
+    <div class="scoreLabel">COMBAT CREDITS</div>
+    <div class="balance">
+      <svg class="coinMini" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="miniCoinGrad" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#FFF8D0"/>
+            <stop offset="35%" stop-color="#FFB800"/>
+            <stop offset="75%" stop-color="#B88000"/>
+            <stop offset="100%" stop-color="#6A4800"/>
+          </radialGradient>
+        </defs>
+        <circle cx="20" cy="20" r="19" fill="url(#miniCoinGrad)"/>
+        <circle cx="20" cy="20" r="17" fill="none" stroke="#fff" stroke-width=".7" opacity=".35"/>
+        <path d="M20 8 l3 8 h8 l-6.5 5 2.5 8 -7-5 -7 5 2.5-8 -6.5-5 h8 z" fill="#4A3000" opacity=".75"/>
+      </svg>
+      <span class="amount" id="score">0</span>
+    </div>
+    <div class="perClick">
+      <span>PER STRIKE <b id="perClickTxt">+1</b></span>
+      <span class="divider">·</span>
+      <span>COMBO <b id="comboTxt">×1.00</b></span>
+    </div>
+  </div>
+
+  <div class="coinArea" id="coinArea">
+    <div class="coinGlow"></div>
+    <div class="hexGrid">
+      <div class="hexRing r1"></div>
+      <div class="hexRing r2"></div>
+      <div class="hexRing r3"></div>
+    </div>
+    <div class="bracket tl"></div>
+    <div class="bracket tr"></div>
+    <div class="bracket bl"></div>
+    <div class="bracket br"></div>
+    <div class="comboBadge" id="comboBadge">COMBO</div>
+
+    <div id="coin">
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="coinGrad" cx="35%" cy="30%" r="80%">
+            <stop offset="0%" stop-color="#FFF8D0"/>
+            <stop offset="18%" stop-color="#FFE27A"/>
+            <stop offset="45%" stop-color="#FFB800"/>
+            <stop offset="75%" stop-color="#B88000"/>
+            <stop offset="100%" stop-color="#5A3800"/>
+          </radialGradient>
+          <linearGradient id="rimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFF8D0"/>
+            <stop offset="30%" stop-color="#FFB800"/>
+            <stop offset="70%" stop-color="#8B5A00"/>
+            <stop offset="100%" stop-color="#3A2000"/>
+          </linearGradient>
+          <linearGradient id="shineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fff" stop-opacity=".6"/>
+            <stop offset="50%" stop-color="#fff" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="starGrad" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#8B0F14"/>
+            <stop offset="100%" stop-color="#4A0508"/>
+          </radialGradient>
+          <linearGradient id="starShine" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fff" stop-opacity=".35"/>
+            <stop offset="50%" stop-color="#fff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <circle cx="120" cy="120" r="118" fill="url(#rimGrad)"/>
+        <circle cx="120" cy="120" r="114" fill="none" stroke="#3A2000" stroke-width="1.5" opacity=".5"/>
+        <g opacity=".55"><g id="notches"></g></g>
+        <circle cx="120" cy="120" r="106" fill="url(#coinGrad)"/>
+        <circle cx="120" cy="120" r="102" fill="none" stroke="#fff" stroke-width="1" opacity=".25"/>
+        <circle cx="120" cy="120" r="90" fill="none" stroke="#5A3800" stroke-width="2" opacity=".35"/>
+        <circle cx="120" cy="120" r="86" fill="none" stroke="#FFF8D0" stroke-width=".8" opacity=".3"/>
+        <g transform="translate(120 122)">
+          <path d="M 0 -68 L 18 -20 L 68 -20 L 28 10 L 44 58 L 0 30 L -44 58 L -28 10 L -68 -20 L -18 -20 Z"
+                fill="#4A0508" opacity=".25" transform="scale(1.06)"/>
+          <path d="M 0 -68 L 18 -20 L 68 -20 L 28 10 L 44 58 L 0 30 L -44 58 L -28 10 L -68 -20 L -18 -20 Z"
+                fill="url(#starGrad)" stroke="#2A0003" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M 0 -68 L 18 -20 L 68 -20 L 28 10 L 44 58 L 0 30 L -44 58 L -28 10 L -68 -20 L -18 -20 Z"
+                fill="url(#starShine)"/>
+        </g>
+        <ellipse cx="82" cy="62" rx="38" ry="16" fill="#fff" opacity=".18" transform="rotate(-28 82 62)"/>
+        <ellipse cx="150" cy="52" rx="20" ry="8" fill="#fff" opacity=".12" transform="rotate(-28 150 52)"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="energyBox">
+    <div class="energyRow">
+      <span class="energyIcon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13 2L4.5 13h6l-1 9L19 11h-6l1-9z"/>
+        </svg>
+      </span>
+      <span class="energyText"><b id="energyTxt">1000</b> / <b id="energyMaxTxt">1000</b></span>
+      <div class="energyBar"><div class="energyFill" id="energyFill"></div></div>
+    </div>
+  </div>
+
+  <nav class="bottomNav">
+    <div class="navItem active" data-view="heroes">
+      <div class="navIcon">⚡</div>
+      <div>Heroes</div>
+    </div>
+    <div class="navItem" data-view="missions">
+      <div class="navIcon">🎯<span class="navBadge hidden" id="missionBadge">0</span></div>
+      <div>Missions</div>
+    </div>
+    <div class="navItem" data-view="events">
+      <div class="navIcon">🔥<span class="navBadge hidden" id="eventBadge">0</span></div>
+      <div>Events</div>
+    </div>
+    <div class="navItem" data-view="intel">
+      <div class="navIcon">📊</div>
+      <div>Intel</div>
+    </div>
+    <div class="navItem" data-view="vault">
+      <div class="navIcon">💎</div>
+      <div>Vault</div>
+    </div>
+  </nav>
+
+  <div class="sheetOverlay" id="sheetOverlay"></div>
+  <div class="sheet" id="sheet">
+    <div class="sheetHeader">
+      <div class="dragHandle"></div>
+      <div class="sheetTitle" id="sheetTitle"><span class="accent">⚡</span> HEROES</div>
+      <div class="sheetClose" id="sheetClose">✕</div>
+    </div>
+    <div class="sheetBody" id="sheetBody"></div>
+  </div>
+
+  <div class="rewardPopup" id="rewardPopup">
+    <div class="rpIcon" id="rpIcon">🎁</div>
+    <div class="rpTitle" id="rpTitle">DAILY REWARD</div>
+    <div class="rpAmount" id="rpAmount">+0</div>
+    <div class="rpSub" id="rpSub">come back tomorrow</div>
+  </div>
+
+  <div id="toast"></div>
+</div>
+
+<script>
+/* ============================================================
+   MARVELS : HARD COMEBACK
+   With Events, Daily Missions, Weekly Missions,
+   and STRICT economy (harder to earn credits)
+   ============================================================ */
+
+const SAVE_KEY = 'marvels_hardcomeback_v2';
+
+/* ---------- HEROES (much more expensive) ---------- */
+const HEROES = [
+  { key:'repulsor', icon:'⚡', name:'Repulsor Beam',
+    desc: l => `+${l+1} damage per strike`,
+    baseCost: 250, growth: 1.75, max: 50,
+    accent:'#4DA6FF', accentSoft:'rgba(77,166,255,.12)' },
+  { key:'reactor', icon:'🔋', name:'Arc Reactor',
+    desc: l => `+${(l+1)*300} energy capacity`,
+    baseCost: 500, growth: 1.85, max: 30,
+    accent:'#4DA6FF', accentSoft:'rgba(77,166,255,.12)' },
+  { key:'vibranium', icon:'🛡️', name:'Vibranium Core',
+    desc: l => `+${l+1} energy regen / sec`,
+    baseCost: 800, growth: 1.95, max: 20,
+    accent:'#B080FF', accentSoft:'rgba(176,128,255,.12)' },
+  { key:'legion', icon:'🤖', name:'Iron Legion',
+    desc: l => `${(l+1)*2} credits / sec auto`,
+    baseCost: 3000, growth: 2.1, max: 20,
+    accent:'#E62429', accentSoft:'rgba(230,36,41,.12)' },
+  { key:'infinity', icon:'💎', name:'Infinity Stone',
+    desc: l => `${(l+1)*2}% critical hit chance`,
+    baseCost: 6000, growth: 2.2, max: 15,
+    accent:'#FFB800', accentSoft:'rgba(255,184,0,.15)' },
+  { key:'mjolnir', icon:'🔨', name:'Mjolnir Strike',
+    desc: l => `${(l+1)*1}% chance of ×3 damage`,
+    baseCost: 15000, growth: 2.4, max: 10,
+    accent:'#4CDC6E', accentSoft:'rgba(76,220,110,.12)' },
+];
+
+const RANKS = [
+  { name:'RECRUIT',    min:0 },
+  { name:'AGENT',      min:2_500 },
+  { name:'SPECIALIST', min:15_000 },
+  { name:'COMMANDER',  min:75_000 },
+  { name:'DIRECTOR',   min:350_000 },
+  { name:'LEGEND',     min:1_500_000 },
+  { name:'AVENGER',    min:6_000_000 },
+  { name:'INFINITY',   min:25_000_000 },
+  { name:'COSMIC',     min:100_000_000 },
+];
+
+/* ============================================================
+   DAILY MISSIONS (reset every 24h)
+   ============================================================ */
+const DAILY_MISSIONS = [
+  { id:'d1', icon:'👊', title:'Warm Up',     desc:'Land 50 strikes',         need:50,   reward:120, prog:s=>s.stats.todayClicks||0 },
+  { id:'d2', icon:'🔥', title:'Combo Rush',  desc:'Reach a ×2.00 combo',     need:200,  reward:180, prog:s=>(s.stats.todayMaxCombo||0)*100 },
+  { id:'d3', icon:'💥', title:'Critical Eye',desc:'Land 10 critical hits',   need:10,   reward:220, prog:s=>s.stats.todayCrits||0 },
+  { id:'d4', icon:'⚙️', title:'Upgrade Day', desc:'Buy 1 hero upgrade',      need:1,    reward:150, prog:s=>s.stats.todayUpgrades||0 },
+];
+
+/* ============================================================
+   WEEKLY MISSIONS (reset every 7d)
+   ============================================================ */
+const WEEKLY_MISSIONS = [
+  { id:'w1', icon:'🏆', title:'Weekly Grind',  desc:'Land 1,000 strikes',      need:1000, reward:600,  prog:s=>s.stats.weekClicks||0 },
+  { id:'w2', icon:'💎', title:'Credit Hunter', desc:'Earn 5,000 credits',      need:5000, reward:800,  prog:s=>s.stats.weekEarned||0 },
+  { id:'w3', icon:'⚡', title:'Hero Collector',desc:'Buy 5 hero upgrades',     need:5,    reward:1000, prog:s=>s.stats.weekUpgrades||0 },
+  { id:'w4', icon:'🔥', title:'Combo God',     desc:'Reach a ×4.00 combo',     need:400,  reward:1200, prog:s=>(s.stats.weekMaxCombo||0)*100 },
+];
+
+/* ============================================================
+   EVENTS — rotating every 6 hours, each lasts 6h
+   ============================================================ */
+const EVENT_POOL = [
+  {
+    id:'ev_blitz', icon:'⚡', name:'Blitz Assault',
+    desc:'2× damage multiplier on every strike. Fast, brutal, temporary.',
+    duration: 6*3600*1000,
+    effect:'doubleDamage',
+  },
+  {
+    id:'ev_crit', icon:'💥', name:'Critical Storm',
+    desc:'Critical hit chance is tripled during the storm.',
+    duration: 6*3600*1000,
+    effect:'critBoost',
+  },
+  {
+    id:'ev_energy', icon:'🔋', name:'Reactor Overdrive',
+    desc:'Energy regen is doubled. Strike without limits.',
+    duration: 6*3600*1000,
+    effect:'energyBoost',
+  },
+  {
+    id:'ev_credit', icon:'💰', name:'Credit Rush',
+    desc:'Passive income from Iron Legion is 3× for a limited window.',
+    duration: 6*3600*1000,
+    effect:'passiveBoost',
+  },
+  {
+    id:'ev_combo', icon:'🔥', name:'Combo Overload',
+    desc:'Combo multiplier caps at ×10 instead of ×5.',
+    duration: 6*3600*1000,
+    effect:'comboBoost',
+  },
+];
+
+/* ============================================================
+   STATE
+   ============================================================ */
+function defaultState(){
+  const now = Date.now();
+  return {
+    score:0, totalClicks:0, perClick:1,
+    energy:1000, energyMax:1000, regen:3,
+    level:1,
+    combo:1, maxCombo:1, comboCount:0,
+    upgrades:{ repulsor:0, reactor:0, vibranium:0, legion:0, infinity:0, mjolnir:0 },
+    achv:{},
+    daily:{},
+    weekly:{},
+    lastDailyReset: now,
+    lastWeeklyReset: now,
+    stats:{
+      todayClicks:0, todayCrits:0, todayMaxCombo:0, todayUpgrades:0,
+      weekClicks:0, weekEarned:0, weekUpgrades:0, weekMaxCombo:0,
+    },
+    /* events */
+    activeEventId: null,
+    eventStartedAt: 0,
+    eventEndsAt: 0,
+    lastEventCheck: now,
+    /* daily streak */
+    streak: 0,
+    lastStreakClaim: 0,
+    /* pending rewards from events (uncollected) */
+    eventRewardBank: 0,
+    lastSeen: now,
+  };
+}
+
+let state = loadState();
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(SAVE_KEY);
+    if(!raw) return defaultState();
+    const s = { ...defaultState(), ...JSON.parse(raw) };
+    s.upgrades = { ...defaultState().upgrades, ...(s.upgrades||{}) };
+    s.stats = { ...defaultState().stats, ...(s.stats||{}) };
+    s.achv = s.achv||{};
+    s.daily = s.daily||{};
+    s.weekly = s.weekly||{};
+    const elapsed = Math.min((Date.now()-(s.lastSeen||Date.now()))/1000, 3600*4);
+    if(elapsed > 5){
+      const rate = (s.upgrades?.legion||0)*2;
+      if(rate>0) s.score += Math.floor(rate*elapsed*0.4);
+      s.energy = Math.min(s.energy + s.regen*elapsed, s.energyMax);
+    }
+    return s;
+  }catch{ return defaultState(); }
+}
+
+function saveState(){
+  state.lastSeen = Date.now();
+  try{ localStorage.setItem(SAVE_KEY, JSON.stringify(state)); }catch{}
+}
+setInterval(saveState, 2000);
+window.addEventListener('beforeunload', saveState);
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+
+function totalUpgrades(s){ return Object.values(s.upgrades).reduce((a,b)=>a+b,0); }
+function costOf(h){
+  const lv = state.upgrades[h.key]||0;
+  return Math.floor(h.baseCost * Math.pow(h.growth, lv));
+}
+function fmt(n){
+  n = Math.floor(n);
+  if(n<1000) return n.toString();
+  if(n<1e6) return (n/1e3).toFixed(n<1e4?2:1).replace(/\.?0+$/,'')+'K';
+  if(n<1e9) return (n/1e6).toFixed(n<1e7?2:1).replace(/\.?0+$/,'')+'M';
+  if(n<1e12) return (n/1e9).toFixed(2).replace(/\.?0+$/,'')+'B';
+  return (n/1e12).toFixed(2)+'T';
+}
+function rankOf(score){
+  let r = RANKS[0];
+  for(const x of RANKS) if(score>=x.min) r=x;
+  return r.name;
+}
+function fmtTime(ms){
+  if(ms <= 0) return '00:00:00';
+  const total = Math.floor(ms/1000);
+  const h = Math.floor(total/3600);
+  const m = Math.floor((total%3600)/60);
+  const s = total%60;
+  return [h,m,s].map(x=>String(x).padStart(2,'0')).join(':');
+}
+
+/* ============================================================
+   AUDIO
+   ============================================================ */
+let actx = null;
+function ensureAudio(){
+  if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch{} }
+  if(actx && actx.state==='suspended') actx.resume();
+}
+function tone(freq, dur=0.06, type='sine', vol=0.05, delay=0){
+  if(!actx) return;
+  try{
+    const t = actx.currentTime + delay;
+    const o = actx.createOscillator();
+    const g = actx.createGain();
+    o.type=type; o.frequency.setValueAtTime(freq, t);
+    g.gain.setValueAtTime(vol, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t+dur);
+    o.connect(g); g.connect(actx.destination);
+    o.start(t); o.stop(t+dur);
+  }catch{}
+}
+function punch(freq, dur=0.08, vol=0.08){
+  if(!actx) return;
+  try{
+    const t = actx.currentTime;
+    const o = actx.createOscillator();
+    const g = actx.createGain();
+    o.type='triangle';
+    o.frequency.setValueAtTime(freq, t);
+    o.frequency.exponentialRampToValueAtTime(freq*0.4, t+dur);
+    g.gain.setValueAtTime(vol, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t+dur);
+    o.connect(g); g.connect(actx.destination);
+    o.start(t); o.stop(t+dur);
+  }catch{}
+}
+function noiseBurst(dur=0.15, vol=0.06){
+  if(!actx) return;
+  try{
+    const t = actx.currentTime;
+    const buffer = actx.createBuffer(1, actx.sampleRate*dur, actx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for(let i=0;i<data.length;i++) data[i] = (Math.random()*2-1) * Math.pow(1-i/data.length, 2);
+    const src = actx.createBufferSource();
+    src.buffer = buffer;
+    const g = actx.createGain();
+    g.gain.value = vol;
+    src.connect(g); g.connect(actx.destination);
+    src.start(t);
+  }catch{}
+}
+const SFX = {
+  tap(combo){ const base = 700 + Math.min(combo*30, 600); punch(base, .06, .06); tone(base*1.5, .04, 'sine', .025); },
+  crit(){ punch(400, .12, .12); tone(1200, .1, 'sawtooth', .05); tone(1800, .14, 'sine', .04, .06); },
+  mega(){ punch(300, .15, .14); tone(880, .12, 'sawtooth', .06); tone(1320, .14, 'sawtooth', .05, .08); tone(1760, .2, 'sine', .05, .16); noiseBurst(.25, .08); },
+  err(){ tone(160,.15,'sawtooth',.05); tone(100,.2,'sawtooth',.04,.05); },
+  buy(){ tone(880,.06,'sine',.06); tone(1320,.08,'sine',.05,.06); },
+  claim(){ tone(1046,.08,'sine',.06); tone(1568,.1,'sine',.05,.08); tone(2093,.14,'sine',.05,.16); },
+  achv(){ [1318,1760,2093].forEach((f,i)=>tone(f,.12,'triangle',.06,i*.09)); noiseBurst(.2,.05); },
+  event(){ [523,659,784,1046,1318].forEach((f,i)=>tone(f,.2,'triangle',.08,i*.1)); noiseBurst(.35,.08); },
+};
+
+/* ============================================================
+   DOM
+   ============================================================ */
+const coinArea = $('#coinArea');
+const coin     = $('#coin');
+const scoreEl  = $('#score');
+const perClickEl = $('#perClickTxt');
+const comboTxt = $('#comboTxt');
+const energyEl = $('#energyTxt');
+const energyMaxEl = $('#energyMaxTxt');
+const energyFill = $('#energyFill');
+const rankTxt  = $('#rankTxt');
+const toast    = $('#toast');
+const sheet    = $('#sheet');
+const sheetOverlay = $('#sheetOverlay');
+const sheetTitle = $('#sheetTitle');
+const sheetBody = $('#sheetBody');
+const comboBadge = $('#comboBadge');
+const appEl = $('#app');
+const eventBanner = $('#eventBanner');
+const evIcon = $('#evIcon');
+const evTitle = $('#evTitle');
+const evDesc = $('#evDesc');
+const evTimer = $('#evTimer');
+const missionBadge = $('#missionBadge');
+const eventBadge = $('#eventBadge');
+const rewardPopup = $('#rewardPopup');
+
+/* build notches */
+(function(){
+  const g = document.getElementById('notches');
+  if(!g) return;
+  const N = 60;
+  for(let i=0;i<N;i++){
+    const a = (i/N)*Math.PI*2;
+    const x1 = 120 + Math.cos(a)*114;
+    const y1 = 120 + Math.sin(a)*114;
+    const x2 = 120 + Math.cos(a)*118;
+    const y2 = 120 + Math.sin(a)*118;
+    const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',x1); line.setAttribute('y1',y1);
+    line.setAttribute('x2',x2); line.setAttribute('y2',y2);
+    line.setAttribute('stroke','#3A2000');
+    line.setAttribute('stroke-width','1.5');
+    g.appendChild(line);
+  }
+})();
+
+/* ============================================================
+   EVENT LOGIC
+   ============================================================ */
+function getActiveEvent(){
+  const now = Date.now();
+  if(state.activeEventId && now < state.eventEndsAt){
+    return EVENT_POOL.find(e => e.id === state.activeEventId);
+  }
+  // spawn new event
+  const elapsed = now - (state.lastEventCheck || 0);
+  // new event every 6 hours
+  if(elapsed > 6*3600*1000 || !state.activeEventId){
+    // pick one that's different from last
+    const options = EVENT_POOL.filter(e => e.id !== state.activeEventId);
+    const pick = options[Math.floor(Math.random()*options.length)];
+    state.activeEventId = pick.id;
+    state.eventStartedAt = now;
+    state.eventEndsAt = now + pick.duration;
+    state.lastEventCheck = now;
+    saveState();
+    SFX.event();
+    showToast('🔥 NEW EVENT: '+pick.name.toUpperCase(), 'event');
+    return pick;
+  }
+  return null;
+}
+
+function hasEventEffect(effect){
+  const ev = getActiveEvent();
+  return ev && ev.effect === effect;
+}
+
+function updateEventBanner(){
+  const ev = getActiveEvent();
+  if(!ev){
+    eventBanner.style.display = 'none';
+    return;
+  }
+  eventBanner.style.display = 'flex';
+  evIcon.textContent = ev.icon;
+  evTitle.textContent = ev.name;
+  evDesc.textContent = ev.desc.slice(0, 50) + '...';
+  const remain = state.eventEndsAt - Date.now();
+  evTimer.textContent = fmtTime(remain);
+}
+
+/* ============================================================
+   DAILY / WEEKLY RESET
+   ============================================================ */
+function checkResets(){
+  const now = Date.now();
+  /* daily: every 24h */
+  if(now - state.lastDailyReset > 24*3600*1000){
+    state.lastDailyReset = now;
+    state.daily = {};
+    state.stats.todayClicks = 0;
+    state.stats.todayCrits = 0;
+    state.stats.todayMaxCombo = 0;
+    state.stats.todayUpgrades = 0;
+    // streak check — if user missed more than 48h, reset streak
+    if(now - state.lastStreakClaim > 48*3600*1000){
+      state.streak = 0;
+    }
+    saveState();
+    showToast('📅 DAILY MISSIONS RESET');
+  }
+  /* weekly: every 7 days */
+  if(now - state.lastWeeklyReset > 7*24*3600*1000){
+    state.lastWeeklyReset = now;
+    state.weekly = {};
+    state.stats.weekClicks = 0;
+    state.stats.weekEarned = 0;
+    state.stats.weekUpgrades = 0;
+    state.stats.weekMaxCombo = 0;
+    saveState();
+    showToast('📆 WEEKLY MISSIONS RESET');
+  }
+}
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function render(){
+  scoreEl.textContent = fmt(state.score);
+  perClickEl.textContent = '+'+state.perClick;
+  comboTxt.textContent = '×'+state.combo.toFixed(2);
+  energyEl.textContent = Math.floor(state.energy);
+  energyMaxEl.textContent = state.energyMax;
+  const pct = Math.max(0, state.energy/state.energyMax*100);
+  energyFill.style.width = pct+'%';
+  energyFill.classList.toggle('low', pct<25);
+  rankTxt.textContent = rankOf(state.score);
+  updateBadges();
+  updateEventBanner();
+}
+
+function updateBadges(){
+  const dailyDone = DAILY_MISSIONS.filter(m => {
+    const p = Math.min(m.prog(state), m.need);
+    return p >= m.need && state.daily[m.id] !== 'claimed';
+  }).length;
+  const weeklyDone = WEEKLY_MISSIONS.filter(m => {
+    const p = Math.min(m.prog(state), m.need);
+    return p >= m.need && state.weekly[m.id] !== 'claimed';
+  }).length;
+  const total = dailyDone + weeklyDone;
+  if(total > 0){
+    missionBadge.classList.remove('hidden');
+    missionBadge.textContent = total;
+  } else {
+    missionBadge.classList.add('hidden');
+  }
+  /* event badge — active event present */
+  const ev = getActiveEvent();
+  if(ev){
+    eventBadge.classList.remove('hidden');
+    eventBadge.textContent = '!';
+  } else {
+    eventBadge.classList.add('hidden');
+  }
+}
+
+/* ============================================================
+   HEROES
+   ============================================================ */
+function renderHeroes(){
+  let html = '<div class="heroGrid">';
+  for(const h of HEROES){
+    const lv = state.upgrades[h.key]||0;
+    const cost = costOf(h);
+    const maxed = lv>=h.max;
+    const can = state.score>=cost && !maxed;
+    html += `
+      <div class="heroCard ${!can&&!maxed?'disabled':''} ${maxed?'maxed':''}"
+           data-buy="${h.key}"
+           style="--accent:${h.accent};--accent-soft:${h.accentSoft}">
+        <div class="hIcon">${h.icon}</div>
+        <div class="hName">${h.name}</div>
+        <div class="hDesc">${h.desc(lv)}</div>
+        <div class="hFooter">
+          <span class="hLvl">LV ${lv}</span>
+          <span class="hPrice">${maxed?'✓ MAX':'⬤ '+fmt(cost)}</span>
+        </div>
+      </div>`;
+  }
+  html += '</div>';
+  sheetBody.innerHTML = html;
+  sheetBody.querySelectorAll('[data-buy]').forEach(c=>{
+    c.onclick = ()=> buyHero(c.dataset.buy);
+  });
+}
+
+function buyHero(key){
+  const h = HEROES.find(x=>x.key===key);
+  const lv = state.upgrades[key]||0;
+  if(lv>=h.max){ showToast('MAX LEVEL REACHED'); SFX.err(); return; }
+  const cost = costOf(h);
+  if(state.score<cost){ showToast('NOT ENOUGH CREDITS'); SFX.err(); return; }
+  state.score -= cost;
+  state.upgrades[key] = lv+1;
+  state.stats.todayUpgrades = (state.stats.todayUpgrades||0) + 1;
+  state.stats.weekUpgrades = (state.stats.weekUpgrades||0) + 1;
+
+  if(key==='repulsor') state.perClick += 1;
+  if(key==='reactor') state.energyMax += 300;
+  if(key==='vibranium') state.regen += 1;
+
+  SFX.buy();
+  showToast('◆ '+h.name.toUpperCase()+' UPGRADED', true);
+  saveState(); render(); renderHeroes();
+}
+
+/* ============================================================
+   MISSIONS
+   ============================================================ */
+let currentMissionTab = 'daily';
+
+function renderMissions(){
+  /* sub-tabs */
+  let tabs = `
+    <div class="subTabs">
+      <div class="subTab ${currentMissionTab==='daily'?'active':''}" data-mtab="daily">
+        Daily
+      </div>
+      <div class="subTab ${currentMissionTab==='weekly'?'active':''}" data-mtab="weekly">
+        Weekly
+      </div>
+      <div class="subTab ${currentMissionTab==='streak'?'active':''}" data-mtab="streak">
+        Streak
+      </div>
+    </div>`;
+
+  let content = '';
+  if(currentMissionTab === 'streak'){
+    content = renderStreakView();
+  } else {
+    const list = currentMissionTab === 'daily' ? DAILY_MISSIONS : WEEKLY_MISSIONS;
+    const storage = currentMissionTab === 'daily' ? state.daily : state.weekly;
+    if(list.length === 0){
+      content = '<div style="text-align:center;padding:30px;color:#7a7a85;font-size:11px;letter-spacing:1px">NO MISSIONS</div>';
+    } else {
+      for(const m of list){
+        const p = Math.min(m.prog(state), m.need);
+        const done = p>=m.need;
+        const claimed = storage[m.id]==='claimed';
+        const pct = (p/m.need)*100;
+        content += `
+          <div class="missionCard ${done?'done':''}">
+            <div class="mIcon">${m.icon}</div>
+            <div class="mBody">
+              <div class="mTitle">${m.title}</div>
+              <div class="mDesc">${m.desc} — ${fmt(p)} / ${fmt(m.need)}</div>
+              <div class="mBar"><div class="mFill" style="width:${pct}%"></div></div>
+            </div>
+            ${done && !claimed ? `<button class="mClaim" data-claim="${m.id}" data-type="${currentMissionTab}">CLAIM</button>` : ''}
+            ${claimed ? '<div style="color:#4CDC6E;font-size:9px;font-weight:800;letter-spacing:1px">✓</div>' : ''}
+          </div>`;
+      }
+    }
+  }
+
+  sheetBody.innerHTML = tabs + content;
+
+  sheetBody.querySelectorAll('[data-mtab]').forEach(t=>{
+    t.onclick = ()=>{
+      currentMissionTab = t.dataset.mtab;
+      renderMissions();
+    };
+  });
+  sheetBody.querySelectorAll('[data-claim]').forEach(b=>{
+    b.onclick = ()=> claimMission(b.dataset.claim, b.dataset.type);
+  });
+}
+
+function claimMission(id, type){
+  const list = type === 'daily' ? DAILY_MISSIONS : WEEKLY_MISSIONS;
+  const storage = type === 'daily' ? state.daily : state.weekly;
+  const m = list.find(x=>x.id===id);
+  if(!m) return;
+  if(storage[id] === 'claimed') return;
+  state.score += m.reward;
+  storage[id] = 'claimed';
+  SFX.claim();
+  showToast('◆ +'+fmt(m.reward)+' CREDITS', true);
+  saveState(); render(); renderMissions();
+}
+
+/* ============================================================
+   STREAK VIEW
+   ============================================================ */
+function renderStreakView(){
+  const claimedToday = (Date.now() - state.lastStreakClaim) < 24*3600*1000;
+  const streak = state.streak || 0;
+  const mult = 1 + Math.min(streak, 7) * 0.15;
+
+  /* reward for today = base * multiplier */
+  const baseReward = 100;
+  const todayReward = Math.floor(baseReward * mult);
+
+  let dots = '';
+  for(let i=0;i<7;i++){
+    const done = i < streak;
+    const isToday = i === streak && !claimedToday;
+    dots += `<div class="streakDot ${done?'done':''} ${isToday?'today':''}">${done ? '✓' : i+1}</div>`;
+  }
+
+  return `
+    <div class="streakCard">
+      <div class="scTitle">🔥 Daily Streak</div>
+      <div class="scDays">${streak}</div>
+      <div class="scLabel">consecutive days</div>
+      <div class="scMult">REWARD ×${mult.toFixed(2)}</div>
+      <div class="streakDots">${dots}</div>
+      <button class="streakBtn" id="streakBtn" ${claimedToday?'disabled':''}>
+        ${claimedToday ? 'COME BACK TOMORROW' : `CLAIM +${fmt(todayReward)}`}
+      </button>
+    </div>
+    <div style="text-align:center;font-size:10px;color:#7a7a85;letter-spacing:1px;line-height:1.7;margin-top:8px">
+      Log in every day to increase your streak.<br>
+      Streak resets if you miss 2 days in a row.<br>
+      Higher streak = higher daily reward.
+    </div>
+  `;
+}
+
+function claimStreak(){
+  const now = Date.now();
+  if(now - state.lastStreakClaim < 24*3600*1000) return;
+
+  /* if it's been more than 48h, streak resets */
+  if(now - state.lastStreakClaim > 48*3600*1000){
+    state.streak = 0;
+  }
+
+  state.streak = (state.streak || 0) + 1;
+  const mult = 1 + Math.min(state.streak-1, 7) * 0.15;
+  const reward = Math.floor(100 * mult);
+  state.score += reward;
+  state.lastStreakClaim = now;
+
+  SFX.event();
+  popReward('🔥', 'STREAK DAY ' + state.streak, '+' + fmt(reward), 'multiplier ×' + mult.toFixed(2));
+  saveState(); render(); renderMissions();
+}
+
+/* ============================================================
+   EVENTS
+   ============================================================ */
+function renderEvents(){
+  const ev = getActiveEvent();
+  let content = '';
+
+  if(!ev){
+    content = `
+      <div style="text-align:center;padding:40px 20px">
+        <div style="font-size:56px;margin-bottom:14px;opacity:.4">🔥</div>
+        <div style="font-size:13px;color:#7a7a85;letter-spacing:2px;font-weight:700">
+          NO ACTIVE EVENT
+        </div>
+        <div style="font-size:11px;color:#5a5a65;margin-top:8px">
+          Events rotate every 6 hours
+        </div>
+      </div>`;
+  } else {
+    const remain = state.eventEndsAt - Date.now();
+    const total = ev.duration;
+    const pct = Math.max(0, (remain/total)*100);
+    content = `
+      <div class="eventCard">
+        <div class="ecTop">
+          <div class="ecIcon">${ev.icon}</div>
+          <div class="ecHead">
+            <div class="ecName">${ev.name}</div>
+            <div class="ecTime">⏱ ${fmtTime(remain)}</div>
+          </div>
+        </div>
+        <div class="ecDesc">${ev.desc}</div>
+        <div class="mBar" style="margin-top:6px">
+          <div class="mFill" style="width:${pct}%;background:linear-gradient(90deg,#FF4B52,#FFB800);box-shadow:0 0 12px rgba(255,184,0,.7)"></div>
+        </div>
+      </div>
+      <div style="text-align:center;font-size:10px;color:#7a7a85;letter-spacing:1px;line-height:1.8;margin-top:8px">
+        During events, special bonuses apply to your gameplay.<br>
+        Stack up credits before the timer runs out.
+      </div>
+    `;
+  }
+
+  /* upcoming events list */
+  content += `
+    <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06)">
+      <div style="font-size:11px;font-weight:800;color:#7a7a85;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">
+        Event Pool
+      </div>
+  `;
+  for(const e of EVENT_POOL){
+    const isActive = ev && ev.id === e.id;
+    content += `
+      <div class="missionCard ${isActive?'event':''}" style="opacity:${isActive?1:0.55}">
+        <div class="mIcon">${e.icon}</div>
+        <div class="mBody">
+          <div class="mTitle">${e.name} ${isActive?'<span style="color:#FFB800">● LIVE</span>':''}</div>
+          <div class="mDesc">${e.desc}</div>
+        </div>
+      </div>`;
+  }
+  content += '</div>';
+
+  sheetBody.innerHTML = content;
+}
+
+/* ============================================================
+   INTEL
+   ============================================================ */
+function renderIntel(){
+  const autoRate = (state.upgrades.legion||0)*2;
+  const critChance = (state.upgrades.infinity||0)*2;
+  const megaChance = (state.upgrades.mjolnir||0)*1;
+  const totalAchv = Object.keys(state.achv).length;
+  sheetBody.innerHTML = `
+    <div class="statsGrid">
+      <div class="statCard"><div class="stIcon">👊</div><div class="stValue">${fmt(state.totalClicks)}</div><div class="stLabel">Strikes</div></div>
+      <div class="statCard"><div class="stIcon">⚡</div><div class="stValue">${state.perClick}</div><div class="stLabel">Dmg / Strike</div></div>
+      <div class="statCard"><div class="stIcon">🤖</div><div class="stValue">${autoRate}/s</div><div class="stLabel">Passive</div></div>
+      <div class="statCard"><div class="stIcon">🔥</div><div class="stValue">×${(state.maxCombo||1).toFixed(2)}</div><div class="stLabel">Best Combo</div></div>
+      <div class="statCard"><div class="stIcon">💎</div><div class="stValue">${critChance}%</div><div class="stLabel">Crit Chance</div></div>
+      <div class="statCard"><div class="stIcon">🔨</div><div class="stValue">${megaChance}%</div><div class="stLabel">Mega Chance</div></div>
+      <div class="statCard"><div class="stIcon">🏆</div><div class="stValue">${totalAchv}</div><div class="stLabel">Achievements</div></div>
+      <div class="statCard"><div class="stIcon">🎖️</div><div class="stValue" style="font-size:13px">${rankOf(state.score)}</div><div class="stLabel">Rank</div></div>
+    </div>
+    <div style="text-align:center;margin-top:18px;font-size:10px;color:#5a5a65;letter-spacing:2px;font-family:'Rajdhani',sans-serif;">
+      AUTO-SAVE ACTIVE · <a onclick="resetGame()" style="color:#E62429;cursor:pointer;text-decoration:none;font-weight:800">RESET ALL DATA</a>
+    </div>
+  `;
+}
+
+/* ============================================================
+   VAULT
+   ============================================================ */
+function renderVault(){
+  const ACHV = [
+    { id:'a1', icon:'🥇', name:'First Contact',  check:s=>s.totalClicks>=1 },
+    { id:'a2', icon:'🔥', name:'Century',        check:s=>s.totalClicks>=100 },
+    { id:'a3', icon:'💠', name:'Thousand Cuts',  check:s=>s.totalClicks>=1000 },
+    { id:'a4', icon:'👑', name:'Ten Thousand',   check:s=>s.totalClicks>=10000 },
+    { id:'a5', icon:'💰', name:'First Million',  check:s=>s.score>=1_000_000 },
+    { id:'a6', icon:'⚡', name:'Combo Elite',    check:s=>(s.maxCombo||0)>=300 },
+    { id:'a7', icon:'🎯', name:'Dedicated',      check:s=>(s.streak||0)>=7 },
+  ];
+  let html = '';
+  for(const a of ACHV){
+    const un = !!state.achv[a.id];
+    html += `
+      <div class="missionCard ${un?'done':''}">
+        <div class="mIcon">${un?a.icon:'🔒'}</div>
+        <div class="mBody">
+          <div class="mTitle">${a.name}</div>
+          <div class="mDesc">${un?'UNLOCKED':'LOCKED — keep pushing'}</div>
+        </div>
+      </div>`;
+  }
+  sheetBody.innerHTML = html;
+}
+
+/* ============================================================
+   SHEET
+   ============================================================ */
+function openSheet(view){
+  const titles = {
+    heroes:   '<span class="accent">⚡</span> HEROES',
+    missions: '<span class="accent">🎯</span> MISSIONS',
+    events:   '<span class="accent">🔥</span> EVENTS',
+    intel:    '<span class="accent">📊</span> INTEL',
+    vault:    '<span class="accent">💎</span> VAULT',
+  };
+  sheetTitle.innerHTML = titles[view] || '';
+
+  if(view==='heroes')   renderHeroes();
+  if(view==='missions') renderMissions();
+  if(view==='events')   renderEvents();
+  if(view==='intel')    renderIntel();
+  if(view==='vault')    renderVault();
+
+  sheetOverlay.classList.add('show');
+  sheet.classList.add('show');
+
+  /* wire up streak button if present */
+  const sb = document.getElementById('streakBtn');
+  if(sb) sb.onclick = claimStreak;
+}
+function closeSheet(){
+  sheetOverlay.classList.remove('show');
+  sheet.classList.remove('show');
+}
+
+/* ============================================================
+   REWARD POPUP
+   ============================================================ */
+let popupTimer;
+function popReward(icon, title, amount, sub){
+  $('#rpIcon').textContent = icon;
+  $('#rpTitle').textContent = title;
+  $('#rpAmount').textContent = amount;
+  $('#rpSub').textContent = sub || '';
+  rewardPopup.classList.add('show');
+  clearTimeout(popupTimer);
+  popupTimer = setTimeout(()=>rewardPopup.classList.remove('show'), 2400);
+}
+
+/* ============================================================
+   TAP / STRIKE
+   ============================================================ */
+let comboCount = 0;
+let lastTapTime = 0;
+let comboResetTimer = null;
+
+function strike(e){
+  ensureAudio();
+  if(state.energy < 1){
+    showToast('ENERGY DEPLETED');
+    SFX.err();
+    return;
+  }
+  const now = performance.now();
+  if(now - lastTapTime < 800) comboCount++;
+  else comboCount = 1;
+  lastTapTime = now;
+  if(comboCount > state.maxCombo) state.maxCombo = comboCount;
+  if(comboCount > (state.stats.todayMaxCombo||0)) state.stats.todayMaxCombo = comboCount;
+  if(comboCount > (state.stats.weekMaxCombo||0)) state.stats.weekMaxCombo = comboCount;
+
+  /* combo cap — events may extend */
+  const comboCap = hasEventEffect('comboBoost') ? 10 : 5;
+  const comboMult = Math.min(1 + comboCount*0.04, comboCap);
+  state.combo = comboMult;
+
+  /* damage */
+  let dmg = state.perClick;
+  let fx = 'normal';
+  const critChance = (state.upgrades.infinity||0)*2 * (hasEventEffect('critBoost') ? 3 : 1);
+  const megaChance = (state.upgrades.mjolnir||0)*1;
+
+  if(Math.random()*100 < megaChance){ dmg *= 3; fx='mega'; state.stats.todayCrits = (state.stats.todayCrits||0)+1; }
+  else if(Math.random()*100 < critChance){ dmg *= 2; fx='crit'; state.stats.todayCrits = (state.stats.todayCrits||0)+1; }
+
+  dmg = Math.floor(dmg * comboMult);
+  if(hasEventEffect('doubleDamage')) dmg *= 2;
+
+  state.energy -= 1;
+  if(state.energy < 0) state.energy = 0;
+  state.score += dmg;
+  state.totalClicks++;
+  state.stats.todayClicks = (state.stats.todayClicks||0) + 1;
+  state.stats.weekClicks = (state.stats.weekClicks||0) + 1;
+  state.stats.weekEarned = (state.stats.weekEarned||0) + dmg;
+
+  /* FX */
+  const rect = coinArea.getBoundingClientRect();
+  const x = (e.clientX ?? rect.left+rect.width/2) - rect.left;
+  const y = (e.clientY ?? rect.top+rect.height/2) - rect.top;
+
+  spawnFloaty(x, y, '+'+fmt(dmg), fx);
+  spawnParticles(x, y, fx);
+  spawnRipple(x, y);
+  spawnSparks(x, y, fx);
+
+  scoreEl.classList.add('pop');
+  setTimeout(()=>scoreEl.classList.remove('pop'), 110);
+  coin.classList.add('hit');
+  setTimeout(()=>coin.classList.remove('hit'), 90);
+
+  if(comboCount >= 5){
+    const tier = comboCount >= 25 ? 'x4' : comboCount >= 15 ? 'x3' : comboCount >= 8 ? 'x2' : '';
+    comboBadge.textContent = 'COMBO ×'+comboCount;
+    comboBadge.className = 'comboBadge show ' + tier;
+    clearTimeout(comboResetTimer);
+    comboResetTimer = setTimeout(()=>comboBadge.classList.remove('show'), 900);
+  }
+
+  if(fx==='mega'){ SFX.mega(); critFlash(); shakeScreen(); }
+  else if(fx==='crit'){ SFX.crit(); critFlash(); shakeScreen(); }
+  else { SFX.tap(comboCount); }
+
+  render();
+  checkAchievements();
+}
+
+function spawnFloaty(x,y,txt,type){
+  const el = document.createElement('div');
+  el.className = 'floaty';
+  el.textContent = txt;
+  el.style.left = x+'px'; el.style.top = y+'px';
+  if(type==='crit'){ el.style.color='#4DA6FF'; el.style.fontSize='30px';
+    el.style.textShadow='0 0 20px rgba(77,166,255,.9),0 0 40px rgba(77,166,255,.5)'; }
+  if(type==='mega'){ el.style.color='#E62429'; el.style.fontSize='38px';
+    el.style.textShadow='0 0 25px rgba(230,36,41,.9),0 0 60px rgba(255,184,0,.7)'; }
+  coinArea.appendChild(el);
+  setTimeout(()=>el.remove(), 1000);
+}
+function spawnParticles(x,y,type){
+  const palettes = {
+    normal: ['#FFB800','#FFE27A','#fff','#E62429'],
+    crit:   ['#4DA6FF','#9DC8FF','#fff','#B080FF'],
+    mega:   ['#E62429','#FF4B52','#FFB800','#fff'],
+  };
+  const colors = palettes[type] || palettes.normal;
+  const count = type==='normal' ? 10 : type==='crit' ? 16 : 24;
+  for(let i=0;i<count;i++){
+    const p = document.createElement('div');
+    p.className='pt';
+    const ang = Math.random()*Math.PI*2;
+    const d = 40+Math.random()*110;
+    p.style.setProperty('--dx', Math.cos(ang)*d+'px');
+    p.style.setProperty('--dy', Math.sin(ang)*d+'px');
+    p.style.left=x+'px'; p.style.top=y+'px';
+    const c = colors[i%colors.length];
+    const size = 4+Math.random()*6;
+    p.style.width=p.style.height=size+'px';
+    p.style.background=c;
+    p.style.boxShadow=`0 0 12px ${c}`;
+    coinArea.appendChild(p);
+    setTimeout(()=>p.remove(), 850);
+  }
+}
+function spawnRipple(x,y){
+  const el = document.createElement('div');
+  el.className='ripple';
+  el.style.left=x+'px'; el.style.top=y+'px';
+  coinArea.appendChild(el);
+  setTimeout(()=>el.remove(), 700);
+}
+function spawnSparks(x,y,type){
+  if(type==='normal') return;
+  const count = type==='mega' ? 8 : 4;
+  for(let i=0;i<count;i++){
+    const s = document.createElement('div');
+    s.className='sparkLine';
+    const ang = Math.random()*180;
+    const len = 30+Math.random()*80;
+    s.style.left=x+'px'; s.style.top=y+'px';
+    s.style.width=len+'px';
+    s.style.transform = `translate(-50%,-50%) rotate(${ang}deg)`;
+    s.style.background = type==='mega'
+      ? 'linear-gradient(90deg,transparent,#FFB800,#fff,#FFB800,transparent)'
+      : 'linear-gradient(90deg,transparent,#4DA6FF,#fff,#4DA6FF,transparent)';
+    coinArea.appendChild(s);
+    setTimeout(()=>s.remove(), 500);
+  }
+}
+function critFlash(){
+  const el = document.createElement('div');
+  el.className='critFlash';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(), 400);
+}
+function shakeScreen(){
+  appEl.classList.add('shakeScreen');
+  setTimeout(()=>appEl.classList.remove('shakeScreen'), 320);
+}
+
+/* ============================================================
+   ACHIEVEMENTS
+   ============================================================ */
+const ACHV = [
+  { id:'a1', check:s=>s.totalClicks>=1 },
+  { id:'a2', check:s=>s.totalClicks>=100 },
+  { id:'a3', check:s=>s.totalClicks>=1000 },
+  { id:'a4', check:s=>s.totalClicks>=10000 },
+  { id:'a5', check:s=>s.score>=1_000_000 },
+  { id:'a6', check:s=>(s.maxCombo||0)>=300 },
+  { id:'a7', check:s=>(s.streak||0)>=7 },
+];
+function checkAchievements(){
+  for(const a of ACHV){
+    if(!state.achv[a.id] && a.check(state)){
+      state.achv[a.id] = true;
+      showToast('🏆 ACHIEVEMENT UNLOCKED', true);
+      SFX.achv();
+    }
+  }
+}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+let toastTimer;
+function showToast(msg, ok=false){
+  toast.textContent = msg;
+  toast.className = '';
+  if(ok === 'event') toast.classList.add('event');
+  else if(ok === true) toast.classList.add('ok');
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>toast.classList.remove('show'), 2000);
+}
+
+/* ============================================================
+   LOOP
+   ============================================================ */
+let lastTick = performance.now();
+function tick(now){
+  const dt = Math.min((now-lastTick)/1000, 1);
+  lastTick = now;
+
+  /* energy regen with event boost */
+  const regenMult = hasEventEffect('energyBoost') ? 2 : 1;
+  if(state.energy < state.energyMax){
+    state.energy = Math.min(state.energy + state.regen*regenMult*dt, state.energyMax);
+  }
+  /* passive income with event boost */
+  const passiveMult = hasEventEffect('passiveBoost') ? 3 : 1;
+  const auto = (state.upgrades.legion||0)*2*passiveMult;
+  if(auto>0) state.score += auto*dt;
+
+  /* combo decay */
+  const idle = (now - lastTapTime)/1000;
+  if(idle > 0.8 && state.combo > 1){
+    state.combo = Math.max(1, state.combo - dt*2);
+  }
+
+  /* periodic event banner update + auto reset check */
+  if(!tick.evCounter || now - tick.evCounter > 1000){
+    tick.evCounter = now;
+    checkResets();
+    updateEventBanner();
+  }
+
+  render();
+  requestAnimationFrame(tick);
+}
+
+/* ============================================================
+   EVENTS
+   ============================================================ */
+coin.addEventListener('pointerdown', e=>{ e.preventDefault(); strike(e); });
+coin.addEventListener('touchstart', e=>{
+  ensureAudio();
+  for(let i=0;i<e.touches.length;i++){
+    const t = e.touches[i];
+    strike({ clientX:t.clientX, clientY:t.clientY });
+  }
+}, { passive:true });
+
+window.addEventListener('keydown', e=>{
+  if(e.code==='Space'){
+    e.preventDefault();
+    const r = coin.getBoundingClientRect();
+    strike({ clientX:r.left+r.width/2, clientY:r.top+r.height/2 });
+  }
+});
+
+$$('.navItem').forEach(item=>{
+  item.onclick = ()=>{
+    $$('.navItem').forEach(x=>x.classList.remove('active'));
+    item.classList.add('active');
+    openSheet(item.dataset.view);
+    SFX.tap(1);
+  };
+});
+
+sheetOverlay.onclick = closeSheet;
+$('#sheetClose').onclick = closeSheet;
+
+let touchStartY = 0;
+sheet.addEventListener('touchstart', e=>{ touchStartY = e.touches[0].clientY; }, {passive:true});
+sheet.addEventListener('touchmove', e=>{
+  const dy = e.touches[0].clientY - touchStartY;
+  if(dy > 70 && sheet.scrollTop === 0) closeSheet();
+}, {passive:true});
+
+eventBanner.onclick = ()=>{
+  $$('.navItem').forEach(x=>x.classList.remove('active'));
+  document.querySelector('[data-view="events"]').classList.add('active');
+  openSheet('events');
+};
+
+function resetGame(){
+  if(!confirm('Reset all progress?')) return;
+  localStorage.removeItem(SAVE_KEY);
+  location.reload();
+}
+window.resetGame = resetGame;
+
+let lastTouch = 0;
+document.addEventListener('touchend', e=>{
+  const now = Date.now();
+  if(now - lastTouch < 300) e.preventDefault();
+  lastTouch = now;
+}, {passive:false});
+
+/* ============================================================
+   INIT
+   ============================================================ */
+checkResets();
+getActiveEvent(); /* spawn first event if needed */
+render();
+lastTick = performance.now();
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>
