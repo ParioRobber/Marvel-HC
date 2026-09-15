@@ -141,11 +141,9 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 .logo{display:flex;align-items:center;gap:9px}
 .logoBox{width:32px;height:32px;background:linear-gradient(135deg,#E62429,#8B0F14);border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;box-shadow:0 0 25px rgba(230,36,41,.7);flex-shrink:0;background-size:cover;background-position:center}
 .logo .name{display:flex;flex-direction:column;gap:1px;min-width:0}
-.logo .name .n1{color:#fff;font-size:12.5px;letter-spacing:1.5px;font-weight:800;display:flex;align-items:center;gap:4px}
+.logo .name .n1{color:#fff;font-size:12.5px;letter-spacing:1.5px;font-weight:800}
 .logo .name .n1 b{color:#E62429;font-weight:900}
-#editNameBtn{display:inline-block;vertical-align:middle;cursor:pointer;font-size:10px;opacity:.55;transition:.2s;line-height:1}
-#editNameBtn:hover,#editNameBtn:active{opacity:1;transform:scale(1.25);filter:drop-shadow(0 0 6px rgba(255,184,0,.9))}
-.logo .name .n2{color:#8a8a95;font-size:9px;letter-spacing:1px;font-weight:700;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px}
+.logo .name .n2{color:#8a8a95;font-size:9px;letter-spacing:1px;font-weight:700;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px}
 .logo .name .n2 b{color:#FFB800}
 .headerRight{display:flex;gap:6px;align-items:center}
 .rankBadge{display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,rgba(255,184,0,.12),rgba(255,184,0,.03));border:1px solid rgba(255,184,0,.35);padding:6px 10px;border-radius:99px;font-size:10px;font-weight:800;color:#FFB800;letter-spacing:1px}
@@ -276,8 +274,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 .statCard .stLabel{font-size:10px;color:#8a8a95;margin-top:6px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
 
 /* SETTINGS */
-.settingsHero{background:linear-gradient(160deg, rgba(230,36,41,.15), rgba(255,184,0,.08));border:1px solid rgba(230,36,41,.35);border-radius:20px;padding:22px 18px;text-align:center;margin-bottom:16px}
-.settingsAvatarWrap{position:relative;width:88px;height:88px;margin:0 auto 14px}
+.settingsHero{background:linear-gradient(160deg, rgba(230,36,41,.15), rgba(255,184,0,.08));border:1px solid rgba(230,36,41,.35);border-radius:20px;padding:22px 18px;text-align:center;margin-bottom:16px;position:relative}
+.settingsAvatarWrap{position:relative;width:88px;height:88px;margin:0 auto 14px;display:inline-block}
 .settingsAvatar{width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#E62429,#8B0F14);border:3px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:38px;box-shadow:0 0 40px rgba(230,36,41,.7);letter-spacing:-1px;position:relative;overflow:hidden;background-size:cover;background-position:center;transition:.2s}
 .avatarEditBadge{position:absolute;bottom:-2px;right:-2px;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#FFB800,#E62429);display:flex;align-items:center;justify-content:center;font-size:14px;border:2.5px solid #0a0508;box-shadow:0 0 18px rgba(255,184,0,.9);z-index:3;cursor:pointer;transition:.2s}
 .avatarEditBadge:active{transform:scale(.9)}
@@ -288,7 +286,12 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 .avatarMenuBtn:hover,.avatarMenuBtn:active{background:rgba(255,184,0,.15)}
 .avatarMenuBtn.danger{color:#FF3B42}
 .avatarMenuBtn.danger:hover,.avatarMenuBtn.danger:active{background:rgba(255,59,66,.15)}
-.settingsName{font-size:22px;font-weight:900;color:#fff;letter-spacing:1px;margin-bottom:4px}
+
+/* Player name display */
+.settingsNameRow{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:4px}
+.settingsName{font-size:22px;font-weight:900;color:#fff;letter-spacing:1px;line-height:1.2;word-break:break-word;max-width:220px}
+.editNameBtn{width:30px;height:30px;border-radius:8px;background:rgba(255,184,0,.15);border:1px solid rgba(255,184,0,.4);display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;transition:.2s;flex-shrink:0;color:#FFB800}
+.editNameBtn:active{transform:scale(.9);background:rgba(255,184,0,.3);box-shadow:0 0 15px rgba(255,184,0,.6)}
 .settingsRank{display:inline-block;font-size:11px;font-weight:800;color:#FFB800;background:rgba(255,184,0,.12);border:1px solid rgba(255,184,0,.4);padding:5px 12px;border-radius:99px;letter-spacing:1.5px}
 .settingsSince{font-size:10.5px;color:#8a8a95;letter-spacing:1px;margin-top:8px}
 .settingsSection{margin-bottom:18px}
@@ -413,24 +416,21 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 .rewardPopup .rpSub{font-size:11px;color:#8a8a95;margin-top:8px;letter-spacing:1px;text-transform:uppercase}
 
 /* ═══════════════════════════════════════════════════════════
-   PERFORMANCE OPTIMIZATIONS (all devices)
+   PERFORMANCE OPTIMIZATIONS
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 600px), (hover: none) {
   .authCard,.updateCard,.heroCard,.missionCard,.statCard,.settingsItem,.tutorialBox,.sheet,.bottomNav,.updCard{backdrop-filter:none !important;-webkit-backdrop-filter:none !important}
   #coin{filter:drop-shadow(0 15px 30px rgba(0,0,0,.8)) drop-shadow(0 0 40px rgba(255,184,0,.5)) !important}
   .hexRing.r1{animation-duration:50s !important}
   .hexRing.r2{animation-duration:80s !important}
-  .hexRing.r3{animation-duration:120s !important}
+  .hexRing.r3{display:none}
   .orbitDot{animation-duration:12s !important}
   .coinGlow{animation-duration:5.5s !important;filter:blur(20px) !important}
   .pt{box-shadow:none !important}
   .checkersBoard{max-width:min(360px, 90vw)}
   .miniStats{margin-top:16px}
-  .hexRing.r3{display:none}
 }
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
-/* Reduce heavy blur on all devices */
-.coinGlow{filter:blur(16px)}
 @supports not (backdrop-filter: blur(6px)){.miniStat{backdrop-filter:none !important}}
 </style>
 </head>
@@ -531,11 +531,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
     <div class="logo">
       <div class="logoBox" id="headerAvatar">M</div>
       <div class="name">
-        <div class="n1">
-          <span id="gameNameTxt">MARVELS<b>·</b>HC</span>
-          <span id="editNameBtn" title="Rename">✏️</span>
-        </div>
-        <div class="n2">by <b>Parham.KH</b></div>
+        <div class="n1">MARVEL<b>·</b>HC</div>
+        <div class="n2" id="headerPlayerName">by <b>Parham.KH</b></div>
       </div>
     </div>
     <div class="headerRight">
@@ -699,7 +696,7 @@ const NEW_VERSION = 'v4.3';
 })();
 
 /* ============================================================
-   MARVELS : HARD COMEBACK — v4.3 (Optimized)
+   MARVELS : HARD COMEBACK — v4.3
    ============================================================ */
 const SAVE_KEY_PREFIX = 'marvels_god_';
 const AUTH_KEY = 'marvels_auth_v10';
@@ -870,7 +867,7 @@ const rewardPopup = $('#rewardPopup');
 const authOverlay = $('#authOverlay'), authMsg = $('#authMsg');
 const goldDisplay = $('#goldDisplay'), minerDisplay = $('#minerDisplay');
 const headerAvatar = $('#headerAvatar');
-const gameNameTxt = $('#gameNameTxt');
+const headerPlayerName = $('#headerPlayerName');
 
 (function(){ const g = document.getElementById('notches'); if(!g) return; const N = isLowEnd ? 24 : 60; for(let i=0;i<N;i++){ const a = (i/N)*Math.PI*2; const x1 = 120+Math.cos(a)*113, y1 = 120+Math.sin(a)*113; const x2 = 120+Math.cos(a)*118, y2 = 120+Math.sin(a)*118; const line = document.createElementNS('http://www.w3.org/2000/svg','line'); line.setAttribute('x1',x1); line.setAttribute('y1',y1); line.setAttribute('x2',x2); line.setAttribute('y2',y2); line.setAttribute('stroke','#3A2000'); line.setAttribute('stroke-width','1.4'); g.appendChild(line); } })();
 
@@ -934,10 +931,11 @@ function checkResets(){
   }
 }
 
-const _cache = { score:'', gold:'', miner:'', energy:'', energyMax:'', rank:'', avatar:null, name:null };
+const _cache = { score:'', gold:'', miner:'', energy:'', energyMax:'', rank:'', avatar:undefined, playerName:undefined };
 
-function updateAvatarUI(){
+function updatePlayerUI(){
   if(!state) return;
+  // Header avatar (logo box)
   if(headerAvatar){
     if(state.avatar && state.avatar !== _cache.avatar){
       headerAvatar.style.backgroundImage = `url('${state.avatar}')`;
@@ -949,11 +947,15 @@ function updateAvatarUI(){
       _cache.avatar = null;
     }
   }
-  if(gameNameTxt){
-    const desired = state.customName ? state.customName : 'MARVELS<b>·</b>HC';
-    if(desired !== _cache.name){
-      gameNameTxt.innerHTML = desired;
-      _cache.name = desired;
+  // Header player name (below MARVEL·HC)
+  if(headerPlayerName){
+    const displayName = (state.customName && state.customName.trim())
+      ? state.customName
+      : (auth.current ? auth.current : 'Parham.KH');
+    const desired = 'by <b>' + displayName.replace(/[<>&]/g, '') + '</b>';
+    if(desired !== _cache.playerName){
+      headerPlayerName.innerHTML = desired;
+      _cache.playerName = desired;
     }
   }
 }
@@ -974,7 +976,7 @@ function render(){
   energyFill.classList.toggle('low', pct<25);
   const r = rankOf(state.score);
   if(r !== _cache.rank){ rankTxt.textContent = r; _cache.rank = r; }
-  updateAvatarUI();
+  updatePlayerUI();
   updateBadges();
 }
 function renderFast(){
@@ -1221,6 +1223,7 @@ function renderAchievements(){
     { id:'a15', icon:'🏓', name:'Pong Pro',      check:s=>(s.pongWins?.hard||0)>=1 },
     { id:'a16', icon:'🏓', name:'Pong Legend',   check:s=>(s.pongWins?.insane||0)>=1 },
     { id:'a17', icon:'📸', name:'Face Reveal',   check:s=>!!s.avatar },
+    { id:'a18', icon:'✏️', name:'Identity',      check:s=>!!s.customName },
   ];
   let html = '';
   for(const a of ACHV){
@@ -1926,7 +1929,6 @@ function doConvert(){
    AVATAR UPLOAD LOGIC
    ============================================================ */
 const avatarInputGlobal = document.getElementById('avatarInputGlobal');
-let _avatarMenuOpen = false;
 
 function handleAvatarFile(file){
   if(!state) return;
@@ -1947,6 +1949,7 @@ function handleAvatarFile(file){
       ctx.drawImage(img, sx, sy, min, min, 0, 0, size, size);
       try{ state.avatar = canvas.toDataURL('image/jpeg', 0.75); }
       catch(err){ showToast('IMAGE PROCESSING FAILED'); SFX.err(); return; }
+      _cache.avatar = undefined;
       saveState();
       SFX.buy();
       showToast('📸 AVATAR UPDATED!', true);
@@ -1978,12 +1981,40 @@ function removeAvatar(){
 }
 
 /* ============================================================
+   EDIT PLAYER NAME
+   ============================================================ */
+function editPlayerName(){
+  if(!state) return;
+  const current = state.customName || (auth.current ? auth.current : 'Parham.KH');
+  const newName = prompt('Enter your display name (max 20 chars):', current);
+  if(newName === null) return;
+  const trimmed = newName.trim();
+  if(trimmed.length === 0){
+    state.customName = null;
+    showToast('✓ NAME RESET', true);
+  } else if(trimmed.length > 20){
+    showToast('NAME TOO LONG (MAX 20)');
+    SFX.err();
+    return;
+  } else {
+    state.customName = trimmed.replace(/[<>]/g, '');
+    showToast('✏️ NAME UPDATED!', true);
+    SFX.buy();
+  }
+  _cache.playerName = undefined;
+  saveState();
+  render();
+  if(sheet.classList.contains('show') && sheetTitle.textContent.includes('SETTINGS')){ renderSettings(); }
+}
+
+/* ============================================================
    SETTINGS
    ============================================================ */
 function renderSettings(){
   const isLogged = !!auth.current;
-  const name = isLogged ? auth.current : 'Guest Player';
-  const initial = isLogged ? name.substring(0,2).toUpperCase() : '?';
+  const accountName = isLogged ? auth.current : 'Guest Player';
+  const displayName = (state.customName && state.customName.trim()) ? state.customName : accountName;
+  const initial = isLogged ? accountName.substring(0,2).toUpperCase() : '?';
   const acc = isLogged ? auth.accounts[auth.current] : null;
   const since = acc ? new Date(acc.createdAt).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' }) : 'Today';
   const avatarStyle = state.avatar
@@ -2002,7 +2033,10 @@ function renderSettings(){
           ${state.avatar ? '<button class="avatarMenuBtn danger" id="avatarRemoveBtn">🗑 REMOVE</button>' : ''}
         </div>
       </div>
-      <div class="settingsName">${name}</div>
+      <div class="settingsNameRow">
+        <div class="settingsName">${displayName}</div>
+        <div class="editNameBtn" id="editNameBtn" title="Change name">✏️</div>
+      </div>
       <div class="settingsRank">🎖️ ${rankOf(state.score)}</div>
       <div class="settingsSince">${isLogged ? 'Member since ' + since : 'Playing as guest'}</div>
     </div>
@@ -2052,26 +2086,28 @@ function renderSettings(){
   const avatarMenu = document.getElementById('avatarMenu');
   const uploadBtn = document.getElementById('avatarUploadBtn');
   const removeBtn = document.getElementById('avatarRemoveBtn');
+  const editNameBtn = document.getElementById('editNameBtn');
 
   if(avatarEditBadge && avatarMenu){
     avatarEditBadge.onclick = (e)=>{
       e.stopPropagation();
       avatarMenu.classList.toggle('show');
-      _avatarMenuOpen = avatarMenu.classList.contains('show');
     };
   }
   if(uploadBtn) uploadBtn.onclick = (e)=>{ e.stopPropagation(); avatarMenu.classList.remove('show'); avatarInputGlobal.click(); };
   if(removeBtn) removeBtn.onclick = (e)=>{ e.stopPropagation(); avatarMenu.classList.remove('show'); removeAvatar(); };
+  if(editNameBtn) editNameBtn.onclick = (e)=>{ e.stopPropagation(); editPlayerName(); };
 
   // Close menu when clicking elsewhere
-  document.addEventListener('click', function closeMenu(e){
+  const closeMenuHandler = (e)=>{
     if(avatarMenu && avatarMenu.classList.contains('show')){
       if(!avatarMenu.contains(e.target) && e.target !== avatarEditBadge){
         avatarMenu.classList.remove('show');
-        document.removeEventListener('click', closeMenu);
+        document.removeEventListener('click', closeMenuHandler);
       }
     }
-  });
+  };
+  document.addEventListener('click', closeMenuHandler);
 
   // Other settings
   const setLogout = document.getElementById('setLogout');
@@ -2244,6 +2280,7 @@ const ACHV = [
   { id:'a15', check:s=>(s.pongWins?.hard||0)>=1 },
   { id:'a16', check:s=>(s.pongWins?.insane||0)>=1 },
   { id:'a17', check:s=>!!s.avatar },
+  { id:'a18', check:s=>!!s.customName },
 ];
 function checkAchievements(){
   for(const a of ACHV){
@@ -2319,32 +2356,6 @@ sheet.addEventListener('touchstart', e=>{ touchStartY = e.touches[0].clientY; },
 sheet.addEventListener('touchmove', e=>{ const dy = e.touches[0].clientY - touchStartY; if(dy > 70 && sheet.scrollTop === 0) closeSheet(); }, {passive:true});
 $('#settingsBtn').onclick = ()=>{ $$('.navItem').forEach(x=>x.classList.remove('active')); openSheet('settings'); SFX.tap(1); };
 $('#goldBtn').onclick = ()=>{ $$('.navItem').forEach(x=>x.classList.remove('active')); openSheet('gold'); SFX.tap(1); };
-
-/* ============================================================
-   EDIT NAME HANDLER
-   ============================================================ */
-$('#editNameBtn').onclick = (e)=>{
-  e.stopPropagation();
-  if(!state) return;
-  const current = state.customName || 'MARVELS·HC';
-  const newName = prompt('Enter a new name for your game (max 20 chars):', current);
-  if(newName === null) return;
-  const trimmed = newName.trim();
-  if(trimmed.length === 0){
-    state.customName = null;
-    showToast('✓ NAME RESET TO DEFAULT', true);
-  } else if(trimmed.length > 20){
-    showToast('NAME TOO LONG (MAX 20)');
-    SFX.err();
-    return;
-  } else {
-    state.customName = trimmed.replace(/[<>]/g, '');
-    showToast('✏️ NAME UPDATED!', true);
-    SFX.buy();
-  }
-  saveState();
-  render();
-};
 
 $('#updateClose').onclick = ()=>{ document.getElementById('updateOverlay').classList.remove('show'); state.updateSeen = UPDATE_VERSION; saveState(); showToast('▶ BACK TO GAME', true); };
 $('#updateSettingsFromPopup').onclick = ()=>{ document.getElementById('updateOverlay').classList.remove('show'); state.updateSeen = UPDATE_VERSION; saveState(); setTimeout(()=>{ $$('.navItem').forEach(x=>x.classList.remove('active')); openSheet('settings'); }, 400); };
